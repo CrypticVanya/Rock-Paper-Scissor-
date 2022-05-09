@@ -13,7 +13,6 @@ buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let playerSelection = button.id
         let computerSelection = randomCompSelect()
-        console.log(computerSelection)
         playRound(playerSelection, computerSelection)
     });
 });
@@ -25,14 +24,21 @@ function playRound(playerSelection, computerSelection) {
        if ((playerSelection === 'rock' && computerSelection === 'scissor') ||
         (playerSelection === 'paper' && computerSelection === 'rock') ||
         (playerSelection === 'scissor' && computerSelection === 'paper')) {
-            console.log("you have won")
+             `${messagEl('Congrats, you have won')}`
         } else if ((playerSelection === 'rock' && computerSelection === 'paper')||
                     (playerSelection === 'paper' && computerSelection === 'scissor')||
                     (playerSelection === 'scissor' && computerSelection === 'rock')) {
-                        console.log("you have lost")
+                        `${messagEl('Oh no, You have Lost')}`
                     } else {
-                        console.log("Its a tie, try again!")
+                         `${messagEl('try again, it is a tie')}`
                     }
 }
 
+
 //plays one round using playerSelect and computerSelect
+
+function messagEl(message) {
+const displayMessage = document.querySelector('#display-message')
+displayMessage.classList.add('displayMessage')
+displayMessage.textContent = message;
+}
