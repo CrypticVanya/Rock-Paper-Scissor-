@@ -1,29 +1,38 @@
+let compChoises = ['rock', 'paper', 'scissor']
 
-const pickOne = (arr) => arr[Math.floor(Math.random() * arr.length)]
-let choice = pickOne(['rock', 'paper', 'scissor'])
-const computerSelection = computerPlay()
-
-function computerPlay() {
-    return choice   
+function randomCompSelect() {
+    return compChoises[Math.floor(Math.random()* compChoises.length)]
 }
 
-console.log(computerSelection)
 
-const playerSelection = "scissor"
+//Create an array that contains the choises of "rock, paper, scissor" game then randomizing a pick with Math.random
+
+const buttons = document.querySelectorAll('.selection')
+
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        let playerSelection = button.id
+        let computerSelection = randomCompSelect()
+        console.log(computerSelection)
+        playRound(playerSelection, computerSelection)
+    });
+});
+
+//Create and obtain the player selection from the ui
 
 function playRound(playerSelection, computerSelection) {
-    if (playerSelection === 'rock' && computerSelection === 'paper') {
-        console.log("You LOSE, rock is weak against paper")
-    } else if (playerSelection === 'rock' && computerSelection === 'scissor') {
-        console.log("you WIN, rock beats scissor")
-    } else if (playerSelection === 'scissor' && computerSelection === 'paper') {
-        console.log("You WIN, scissors cuts paper")
-    } else if (playerSelection === 'scissor' && computerSelection === 'rock') {
-        console.log("You LOSE, scissor gets smashed by rock")
-    } else {
-        console.log("It is a tie, try again")
-    }
+       
+       if ((playerSelection === 'rock' && computerSelection === 'scissor') ||
+        (playerSelection === 'paper' && computerSelection === 'rock') ||
+        (playerSelection === 'scissor' && computerSelection === 'paper')) {
+            console.log("you have won")
+        } else if ((playerSelection === 'rock' && computerSelection === 'paper')||
+                    (playerSelection === 'paper' && computerSelection === 'scissor')||
+                    (playerSelection === 'scissor' && computerSelection === 'rock')) {
+                        console.log("you have lost")
+                    } else {
+                        console.log("Its a tie, try again!")
+                    }
 }
 
-
-let winner = playRound(playerSelection, computerSelection)
+//plays one round using playerSelect and computerSelect
