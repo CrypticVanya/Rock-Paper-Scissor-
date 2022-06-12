@@ -1,21 +1,3 @@
-<<<<<<< HEAD
-let myScore = 0
-let compScore = 0
-let playerSelection = 'rock'
-let youWin = "congrats, you have won this round!"
-let youLost = "oh no, you have lost this round!"
-let youTie = "its a tie, try again"
-
-
-let compSelect = ['rock', 'paper', 'scissor']
-
-function compRandomSelect() {
-    return compSelect[Math.floor(Math.random()*compSelect.length)]
-}
-
-let computerSelection = compRandomSelect()
-
-=======
 //Create an array that contains the choises of "rock, paper, scissor" game then randomizing a pick with Math.random
 
 let compChoises = ['rock', 'paper', 'scissor']
@@ -46,42 +28,11 @@ buttons.forEach((button) => {
 
 
 //Create and obtain the player selection from the UI
->>>>>>> rps-ui
 
 function playRound(playerSelection, computerSelection) {
     if ((playerSelection === 'rock' && computerSelection === 'scissor') ||
         (playerSelection === 'paper' && computerSelection === 'rock') ||
         (playerSelection === 'scissor' && computerSelection === 'paper')) {
-<<<<<<< HEAD
-            console.log(`${youWin}, Your score: ${myScore+=1} & ${compScore}`)
-        } else if ((playerSelection === 'rock' && computerSelection === 'paper') ||
-                    (playerSelection === 'paper' && computerSelection === 'rock') ||
-                    (playerSelection === 'scissor' && computerSelection === 'rock')) {
-                        console.log(`${youLost}, your score: ${myScore} & Computer Score: ${compScore+=1}`)
-                    } else {
-                        console.log("tie")
-                    }
-}
-
-
-function newGame() {
-    for (let i = 1; i <= 5; i++) {
-        console.log("round #" + i)
-        let computerSelection = compRandomSelect()
-        console.log(computerSelection)
-        playRound(playerSelection, computerSelection)
-    } (console.log("winner:"))
-    if (myScore > compScore) {
-        console.log("player wins")
-    } else if (myScore < compScore) {
-        console.log("computer wins")
-    } else {
-        console.log("its a tie")
-    }
-}
-
-newGame()
-=======
             `${messagEl('Congrats, you get a point')} + ${playerScore(myScore++)}}`
     } else if ((playerSelection === 'rock' && computerSelection === 'paper')||
         (playerSelection === 'paper' && computerSelection === 'scissor')||
@@ -145,4 +96,3 @@ function losingEl(message) {
     displayMessage.textContent = message;
 }
     
->>>>>>> rps-ui
